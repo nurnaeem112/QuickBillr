@@ -40,31 +40,33 @@ const SEOUpdater: React.FC = () => {
     const baseUrl = window.location.href.split('#')[0];
 
     switch (location.pathname) {
-      case '/builder':
-        pageTitle = 'Invoice Builder | QuickBillr';
-        pageDescription = 'Create and customize your invoice or estimate in real-time. Add logos, items, taxes, and download as a professional PDF.';
-        pageKeywords = 'invoice generator, estimate maker, pdf invoice, billing software, create invoice online';
-        canonicalUrl = `${baseUrl}#/builder`;
-        break;
-      case '/about':
-        pageTitle = 'About Us | QuickBillr';
-        pageDescription = 'Learn about QuickBillr\'s mission to empower freelancers and small businesses with a simple, powerful, and free billing tool.';
-        pageKeywords = 'about us, invoice software company, billing tool mission, freelancer tools';
-        canonicalUrl = `${baseUrl}#/about`;
-        break;
-      case '/contact':
-        pageTitle = 'Contact Us | QuickBillr';
-        pageDescription = 'Get in touch with the QuickBillr team. We\'d love to hear your questions, feedback, or suggestions.';
-        pageKeywords = 'contact support, quickbillr help, feedback, customer service';
-        canonicalUrl = `${baseUrl}#/contact`;
-        break;
-      default: // Home page '/'
-        pageTitle = 'QuickBillr - Free Invoice & Estimate Generator';
-        pageDescription = 'Generate professional invoices and estimates in seconds. Supports 20+ languages, multiple currencies, QR code payments, and customizable templates.';
-        pageKeywords = 'invoice maker, estimate generator, free invoice template, freelancer billing tool, multi-language invoice, multi-currency invoice, bill creator';
-        canonicalUrl = baseUrl;
-        break;
-    }
+  case '/free-invoice-generator':
+    pageTitle = 'Free Invoice Generator | QuickBillr';
+    pageDescription = 'Easily create professional invoices and estimates online for free. Customize, download as PDF, and share instantly.';
+    pageKeywords = 'invoice generator, free invoice maker, create invoice online, PDF invoice, QuickBillr';
+    canonicalUrl = `${baseUrl}#/free-invoice-generator`;
+    break;
+  case '/about-quickbillr':
+    pageTitle = 'About QuickBillr | Our Mission to Simplify Invoicing';
+    pageDescription = 'Discover QuickBillr’s story and our mission to empower freelancers and small businesses with smarter invoicing tools.';
+    pageKeywords = 'about QuickBillr, online invoicing, business tools, invoice generator story';
+    canonicalUrl = `${baseUrl}#/about-quickbillr`;
+    break;
+  case '/contact-support':
+    pageTitle = 'Contact Support | QuickBillr Help Center';
+    pageDescription = 'Need help or have a question? Contact QuickBillr support for fast assistance with invoices, billing, or feedback.';
+    pageKeywords = 'contact QuickBillr, invoice help, customer support, billing issues';
+    canonicalUrl = `${baseUrl}#/contact-support`;
+    break;
+  default:
+    pageTitle = 'QuickBillr - Free Invoice & Estimate Generator';
+    pageDescription = 'Generate professional invoices and estimates in seconds. Supports 20+ languages, multiple currencies, QR code payments, and customizable templates.';
+    pageKeywords = 'invoice maker, estimate generator, free invoice template, freelancer billing tool';
+    canonicalUrl = baseUrl;
+    break;
+}
+
+    
 
     // Update standard SEO tags
     document.title = pageTitle;
@@ -96,10 +98,10 @@ const App: React.FC = () => {
           <Header />
           <main className="flex-grow">
             <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/builder" element={<InvoiceBuilderPage />} />
-              <Route path="/about" element={<AboutPage />} />
-              <Route path="/contact" element={<ContactPage />} />
+             <Route path="/" element={<HomePage />} />
+             <Route path="/free-invoice-generator" element={<InvoiceBuilderPage />} />
+             <Route path="/about-quickbillr" element={<AboutPage />} />
+             <Route path="/contact-support" element={<ContactPage />} />
             </Routes>
           </main>
           <Footer />

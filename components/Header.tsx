@@ -34,7 +34,8 @@ const Header: React.FC = () => {
           <div className="flex items-center">
             <ThemeToggle />
             <NavLink
-              to="/builder"
+              to="/free-invoice-generator"
+
               className="ml-4 hidden sm:inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-gradient-to-r from-primary-600 to-primary-700 hover:shadow-lg hover:brightness-110 transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-700"
             >
               Create Invoice
@@ -68,7 +69,8 @@ const Header: React.FC = () => {
                 <NavLink to="/about" className={({ isActive }) => `${mobileLinkClass} ${isActive ? activeLinkClass : inactiveLinkClass}`}>About</NavLink>
                 <NavLink to="/contact" className={({ isActive }) => `${mobileLinkClass} ${isActive ? activeLinkClass : inactiveLinkClass}`}>Contact</NavLink>
                  <NavLink
-                    to="/builder"
+                    to="/free-invoice-generator"
+
                     className="sm:hidden mt-2 w-full inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-gradient-to-r from-primary-600 to-primary-700 hover:shadow-lg hover:brightness-110 transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-700"
                 >
                     Create Invoice

@@ -79,7 +79,8 @@ const HomePage: React.FC = () => {
           </p>
           <div className="mt-8">
             <Link
-              to="/builder"
+              to="/free-invoice-generator"
+
               className="inline-block px-8 py-4 bg-gradient-to-r from-primary-600 to-primary-700 text-white font-semibold rounded-lg shadow-md hover:shadow-lg hover:brightness-110 transition-all transform hover:scale-105"
             >
               Try Free Now
