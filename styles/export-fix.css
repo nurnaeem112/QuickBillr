@@ -1,0 +1,39 @@
+.export-mode * {
+  box-sizing: border-box !important;
+  transform: none !important;
+  letter-spacing: 0.01em !important;
+  word-spacing: 0.02em !important;
+  line-height: 1.25 !important;
+}
+
+.export-mode table {
+  border-collapse: collapse !important;
+}
+
+.export-mode th,
+.export-mode td {
+  padding: 4px 8px !important;
+  text-align: left !important;
+  vertical-align: middle !important;
+}
+
+.export-mode .flex {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 4px !important;
+}
+
+.export-mode input,
+.export-mode textarea {
+  background: none !important;
+  color: #000 !important;
+  border: none !important;
+}
+
+.export-mode {
+  background: #ffffff !important;
+  color: #000000 !important;
+  width: 794px !important; /* A4 width */
+  margin: 0 auto !important;
+}

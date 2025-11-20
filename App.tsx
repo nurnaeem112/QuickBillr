@@ -8,6 +8,10 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import { ThemeProvider } from './context/ThemeContext';
 
+
+import './export.css';
+
+
 // SEO component that uses hooks to update meta tags based on the current route
 const SEOUpdater: React.FC = () => {
   const location = useLocation();

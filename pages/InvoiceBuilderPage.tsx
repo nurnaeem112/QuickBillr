@@ -1,3 +1,5 @@
+import TemplateSelector from '../components/TemplateSelector';
+
 import React, { useState, useCallback, ChangeEvent, useRef, useLayoutEffect, useEffect, ReactNode } from 'react';
 import type { InvoiceData, LineItem } from '../types';
 import { DocumentType } from '../types';
@@ -5,7 +7,8 @@ import { TEMPLATES, CURRENCIES, LANGUAGES } from '../constants';
 import useLocalStorage from '../hooks/useLocalStorage';
 import { translations } from '../translations';
 import InvoicePreview from '../components/InvoicePreview';
-import { downloadPdf, prepareExportableInvoice } from '../services/downloadPdf';
+import { downloadPdf } from "../services/downloadPdf";
+
 
 declare const jspdf: any;
 declare const html2canvas: any;
@@ -156,10 +159,12 @@ const CustomDropdown: React.FC<CustomDropdownProps> = ({ options, value, onChang
 
 const InvoiceBuilderPage: React.FC = () => {
   const [data, setData] = useLocalStorage<InvoiceData>('invoiceData', defaultInvoice);
-  const [selectedTemplate, setSelectedTemplate] = useLocalStorage<string>('selectedTemplate', 'classic');
+  const [selectedTemplate, setSelectedTemplate] = useLocalStorage<string>('selectedTemplate', 'template-1');
   const [showQrCode, setShowQrCode] = useLocalStorage<boolean>('showQrCode', true);
   const [qrCodeUrl, setQrCodeUrl] = useState<string>('');
   const [paperSize, setPaperSize] = useLocalStorage<string>('paperSize', 'a4');
+  const [isDownloading, setIsDownloading] = useState(false);
+
   
   const t = translations[data.language as keyof typeof translations] || translations['en-US'];
 
@@ -240,15 +245,22 @@ const InvoiceBuilderPage: React.FC = () => {
     }
   }, [data.language]);
 
-  const handleDownloadPdf = useCallback(() => {
-    downloadPdf(data, paperSize, formatDate);
-  }, [data, paperSize, formatDate]);
+  const handleDownloadPdf = useCallback(async () => {
+    setIsDownloading(true);   // <-- Enable PDF-safe mode
+
+    await downloadPdf(data, paperSize, formatDate);
+
+    setTimeout(() => {
+        setIsDownloading(false);  // <-- Back to normal mode
+    }, 200);
+}, [data, paperSize, formatDate]);
+
 
   const handlePrint = useCallback(() => {
     const previewElement = document.getElementById('invoice-preview');
     if (!previewElement) return;
 
-    const exportableInvoice = prepareExportableInvoice(previewElement, data, formatDate);
+    const exportableInvoice = previewElement.cloneNode(true) as HTMLElement;
     if (!exportableInvoice) return;
 
     const printContainer = document.getElementById('print-container');
@@ -325,6 +337,7 @@ const InvoiceBuilderPage: React.FC = () => {
                     balanceDue={balanceDue}
                     EditableField={EditableField}
                     templateId={selectedTemplate}
+                    isDownloading={isDownloading} 
                   />
               </div>
 
@@ -348,22 +361,13 @@ const InvoiceBuilderPage: React.FC = () => {
                             </button>
                          </div>
                          <div className="grid grid-cols-1 gap-4 pt-2">
-                             <label className="block">
-                               <span className="text-gray-700 font-semibold dark:text-gray-300">Paper Size</span>
-                               <CustomDropdown
-                                   value={paperSize}
-                                   onChange={setPaperSize}
-                                   options={[{value: 'a4', label: 'A4'}, {value: 'letter', label: 'US Letter'}]}
-                               />
-                           </label>
-                             <label className="block">
-                                 <span className="text-gray-700 font-semibold dark:text-gray-300">Theme</span>
-                                 <CustomDropdown
-                                     value={selectedTemplate}
-                                     onChange={(newValue) => setSelectedTemplate(newValue)}
-                                     options={TEMPLATES.map(t => ({ value: t.id, label: <>{t.name} {t.type === 'Premium' && '👑'}</> }))}
-                                 />
-                             </label>
+                             
+<TemplateSelector
+  selectedTemplate={selectedTemplate}
+  setSelectedTemplate={setSelectedTemplate}
+/>
+
+
                               <label className="block">
                                  <span className="text-gray-700 font-semibold dark:text-gray-300">{t.language}</span>
                                  <CustomDropdown

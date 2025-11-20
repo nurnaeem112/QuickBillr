@@ -1,0 +1,47 @@
+/* Fix text alignment issues */
+.pdf-safe * {
+  line-height: 1.3 !important;
+  letter-spacing: 0 !important;
+  text-align: left !important;
+  vertical-align: top !important;
+}
+
+/* Fix flex issues */
+.pdf-safe .flex {
+  display: block !important;
+}
+
+/* Fix table layout issues */
+.pdf-safe table {
+  border-collapse: collapse !important;
+  table-layout: fixed !important;
+}
+
+.pdf-safe td,
+.pdf-safe th {
+  padding: 6px !important;
+  vertical-align: top !important;
+  text-align: left !important;
+}
+
+/* Fix number alignment */
+.pdf-safe .text-right {
+  text-align: right !important;
+}
+
+
+.pdf-safe * {
+  color: #000 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.pdf-safe input,
+.pdf-safe textarea {
+  border: 1px solid #000 !important;
+}
+
+.pdf-safe button,
+.pdf-safe .preview-only {
+  display: none !important;
+}

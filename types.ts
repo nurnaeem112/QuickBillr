@@ -36,4 +36,5 @@ export interface Template {
   id: string;
   name: string;
   type: 'Free' | 'Premium';
+  image: string; // 🖼️ Add this line
 }

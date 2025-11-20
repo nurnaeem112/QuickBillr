@@ -52,7 +52,7 @@ const Footer: React.FC = () => {
                 <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">Quick Links</h3>
                 <ul className="mt-4 space-y-4">
                   <li><Link to="/builder" className="text-base text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">Invoice Builder</Link></li>
-                  <li><Link to="/about" className="text-base text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">About Us</Link></li>
+                  <li><Link to="/about-quickbillr" className="text-base text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">About Us</Link></li>
                 </ul>
               </div>
               <div className="mt-12 md:mt-0">
@@ -67,7 +67,7 @@ const Footer: React.FC = () => {
                <div>
                 <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">Support</h3>
                 <ul className="mt-4 space-y-4">
-                  <li><Link to="/contact" className="text-base text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">Contact</Link></li>
+                  <li><Link to="/contact-support" className="text-base text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">Contact</Link></li>
                   <li><a href="#" className="text-base text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">FAQ</a></li>
                 </ul>
               </div>

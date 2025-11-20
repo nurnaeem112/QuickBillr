@@ -1,9 +1,16 @@
 import type { Template } from './types';
 
+import template1Img from './assets/template-1.png';
+import template2Img from './assets/template-2.png';
+import template3Img from './assets/template-3.png';
+
 export const TEMPLATES: Template[] = [
-  { id: 'classic', name: 'Classic', type: 'Free' },
-  { id: 'bold', name: 'Bold', type: 'Free' },
-];
+  { id: 'template-1', image: template1Img, name: 'template-1', type: 'Premium' },
+  { id: 'template-2', image: template2Img, name: 'template-2', type: 'Free' },
+  { id: 'template-3', image: template3Img, name: 'template-3', type: 'Premium' },
+]
+
+
 
 export const CURRENCIES = [
     { symbol: "$", name: "USD" },

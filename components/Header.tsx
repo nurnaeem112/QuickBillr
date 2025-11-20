@@ -28,8 +28,8 @@ const Header: React.FC = () => {
             </NavLink>
           </div>
           <nav className="hidden md:flex items-center space-x-8">
-            <NavLink to="/about" className={({ isActive }) => isActive ? activeLinkClass : inactiveLinkClass}>About</NavLink>
-            <NavLink to="/contact" className={({ isActive }) => isActive ? activeLinkClass : inactiveLinkClass}>Contact</NavLink>
+            <NavLink to="/about-quickbillr" className={({ isActive }) => isActive ? activeLinkClass : inactiveLinkClass}>About</NavLink>
+            <NavLink to="/contact-support" className={({ isActive }) => isActive ? activeLinkClass : inactiveLinkClass}>Contact</NavLink>
           </nav>
           <div className="flex items-center">
             <ThemeToggle />
@@ -66,8 +66,8 @@ const Header: React.FC = () => {
         {isMenuOpen && (
           <div className="md:hidden" id="mobile-menu">
             <div className="pt-2 pb-4 space-y-1">
-                <NavLink to="/about" className={({ isActive }) => `${mobileLinkClass} ${isActive ? activeLinkClass : inactiveLinkClass}`}>About</NavLink>
-                <NavLink to="/contact" className={({ isActive }) => `${mobileLinkClass} ${isActive ? activeLinkClass : inactiveLinkClass}`}>Contact</NavLink>
+                <NavLink to="/about-quickbillr" className={({ isActive }) => `${mobileLinkClass} ${isActive ? activeLinkClass : inactiveLinkClass}`}>About</NavLink>
+                <NavLink to="/contact-support" className={({ isActive }) => `${mobileLinkClass} ${isActive ? activeLinkClass : inactiveLinkClass}`}>Contact</NavLink>
                  <NavLink
                     to="/free-invoice-generator"
 
