@@ -28,6 +28,7 @@ const Header: React.FC = () => {
             </NavLink>
           </div>
           <nav className="hidden md:flex items-center space-x-8">
+            <NavLink to="/blog" className={({ isActive }) => isActive ? activeLinkClass : inactiveLinkClass}>Blog</NavLink>
             <NavLink to="/about-quickbillr" className={({ isActive }) => isActive ? activeLinkClass : inactiveLinkClass}>About</NavLink>
             <NavLink to="/contact-support" className={({ isActive }) => isActive ? activeLinkClass : inactiveLinkClass}>Contact</NavLink>
           </nav>
@@ -68,6 +69,7 @@ const Header: React.FC = () => {
             <div className="pt-2 pb-4 space-y-1">
                 <NavLink to="/about-quickbillr" className={({ isActive }) => `${mobileLinkClass} ${isActive ? activeLinkClass : inactiveLinkClass}`}>About</NavLink>
                 <NavLink to="/contact-support" className={({ isActive }) => `${mobileLinkClass} ${isActive ? activeLinkClass : inactiveLinkClass}`}>Contact</NavLink>
+                <NavLink to="/blog" className={({ isActive }) => `${mobileLinkClass} ${isActive ? activeLinkClass : inactiveLinkClass}`}>Blog</NavLink>
                  <NavLink
                     to="/free-invoice-generator"
 

@@ -53,6 +53,7 @@ const Footer: React.FC = () => {
                 <ul className="mt-4 space-y-4">
                   <li><Link to="/builder" className="text-base text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">Invoice Builder</Link></li>
                   <li><Link to="/about-quickbillr" className="text-base text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">About Us</Link></li>
+                  <li><Link to="/blog" className="text-base text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">Blog</Link></li>
                 </ul>
               </div>
               <div className="mt-12 md:mt-0">

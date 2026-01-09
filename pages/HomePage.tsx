@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { blogPosts } from './BlogPage';
 
-// FIX: Replaced JSX.Element with React.ReactElement to resolve "Cannot find namespace 'JSX'" error.
 const FeatureCard: React.FC<{ icon: React.ReactElement; title: string; description: string }> = ({ icon, title, description }) => (
   <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow dark:bg-gray-800">
     <div className="flex items-center justify-center h-12 w-12 rounded-full bg-gradient-to-br from-primary-500 to-primary-700 text-white mb-4">
@@ -66,11 +66,13 @@ const HomePage: React.FC = () => {
         }
     ];
 
+    const featuredPosts = blogPosts.slice(0, 3);
+
   return (
     <div>
       {/* Hero Section */}
       <section className="bg-white dark:bg-gray-900">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-44 text-center">
           <h1 className="text-4xl md:text-6xl font-extrabold text-gray-900 tracking-tight dark:text-white">
             Create Professional Invoices & Estimates in <span className="bg-gradient-to-r from-primary-500 to-primary-700 text-transparent bg-clip-text">Seconds</span>
           </h1>
@@ -80,7 +82,6 @@ const HomePage: React.FC = () => {
           <div className="mt-8">
             <Link
               to="/free-invoice-generator"
-
               className="inline-block px-8 py-4 bg-gradient-to-r from-primary-600 to-primary-700 text-white font-semibold rounded-lg shadow-md hover:shadow-lg hover:brightness-110 transition-all transform hover:scale-105"
             >
               Try Free Now
@@ -103,9 +104,57 @@ const HomePage: React.FC = () => {
             </div>
         </div>
       </section>
+
+      {/* Featured Blog Section */}
+      <section className="py-20 bg-white dark:bg-gray-900">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                  <div className="max-w-2xl">
+                    <h2 className="text-3xl font-bold text-gray-900 dark:text-white">Latest from Our Blog</h2>
+                    <p className="mt-4 text-lg text-gray-600 dark:text-gray-300">Expert advice and insights to help your business grow and thrive.</p>
+                  </div>
+                  <div className="mt-6 md:mt-0">
+                    <Link to="/blog" className="inline-flex items-center text-primary-600 font-semibold hover:text-primary-700 transition-colors">
+                        View all posts
+                        <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                    </Link>
+                  </div>
+              </div>
+              <div className="grid md:grid-cols-3 gap-8">
+                  {featuredPosts.map(post => (
+                      <Link 
+                        key={post.id} 
+                        to={`/blog/${post.id}`}
+                        className="group flex flex-col bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg transition-all dark:bg-gray-800 dark:border-gray-700"
+                      >
+                          <div className="relative h-48 overflow-hidden">
+                              <img 
+                                src={post.imageUrl} 
+                                alt={post.title} 
+                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                              />
+                          </div>
+                          <div className="p-6">
+                              <div className="flex items-center text-xs font-medium text-primary-600 mb-2 dark:text-primary-400">
+                                  <span>{post.date}</span>
+                                  <span className="mx-2 text-gray-300 dark:text-gray-600">•</span>
+                                  <span>{post.readTime}</span>
+                              </div>
+                              <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-primary-600 transition-colors dark:text-white line-clamp-2">
+                                  {post.title}
+                              </h3>
+                              <p className="text-gray-600 text-sm line-clamp-3 dark:text-gray-400">
+                                  {post.description}
+                              </p>
+                          </div>
+                      </Link>
+                  ))}
+              </div>
+          </div>
+      </section>
       
       {/* Testimonials Section */}
-      <section className="py-20 bg-white dark:bg-gray-900">
+      <section className="py-20 bg-gray-50 dark:bg-gray-800">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
               <div className="text-center mb-12">
                   <h2 className="text-3xl font-bold text-gray-900 dark:text-white">Loved by Professionals Worldwide</h2>

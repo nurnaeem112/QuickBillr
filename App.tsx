@@ -4,12 +4,14 @@ import HomePage from './pages/HomePage';
 import InvoiceBuilderPage from './pages/InvoiceBuilderPage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
+import BlogPage from './pages/BlogPage';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import { ThemeProvider } from './context/ThemeContext';
 
 
 import './export.css';
+import BlogPostPage from './pages/BlogPostPage';
 
 
 // SEO component that uses hooks to update meta tags based on the current route
@@ -62,6 +64,12 @@ const SEOUpdater: React.FC = () => {
     pageKeywords = 'contact QuickBillr, invoice help, customer support, billing issues';
     canonicalUrl = `${baseUrl}#/contact-support`;
     break;
+      case '/blog':
+    pageTitle = 'Blog | QuickBillr Updates & Invoicing Tips';
+    pageDescription = 'Discover QuickBillr’s story and our mission to empower freelancers and small businesses with smarter invoicing tools.';
+    pageKeywords = 'blog, QuickBillr, invoicing tips, invoice updates';
+    canonicalUrl = `${baseUrl}#/blog`;
+    break;
   default:
     pageTitle = 'QuickBillr - Free Invoice & Estimate Generator';
     pageDescription = 'Generate professional invoices and estimates in seconds. Supports 20+ languages, multiple currencies, QR code payments, and customizable templates.';
@@ -107,6 +115,8 @@ const App: React.FC = () => {
              <Route path="/free-invoice-generator" element={<InvoiceBuilderPage />} />
              <Route path="/about-quickbillr" element={<AboutPage />} />
              <Route path="/contact-support" element={<ContactPage />} />
+             <Route path="/blog" element={<BlogPage />} />
+             <Route path="/blog/:id" element={<BlogPostPage />} />
             </Routes>
           </main>
           <Footer />
