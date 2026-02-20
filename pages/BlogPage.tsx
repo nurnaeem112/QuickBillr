@@ -15,6 +15,7 @@ export const blogPosts: BlogPost[] = [
   Freelancers lose thousands of dollars annually to late payments and unpaid invoices. The typical "net 30" payment terms can stretch to 60 or 90 days if you don't have systems in place. Here's your complete guide to transforming your payment process.
 </p>
 
+
 <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 mb-8 dark:bg-yellow-900/30 dark:border-yellow-400">
   <div class="flex">
     <div class="flex-shrink-0">

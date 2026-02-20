@@ -11,6 +11,7 @@ function useLocalStorage<T,>(key: string, initialValue: T): [T, Dispatch<SetStat
     }
   });
 
+  
   const setValue = (value: T | ((val: T) => T)) => {
     try {
       const valueToStore = value instanceof Function ? value(storedValue) : value;
