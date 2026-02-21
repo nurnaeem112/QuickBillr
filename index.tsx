@@ -4,6 +4,8 @@ import App from './App';
 import { HelmetProvider } from 'react-helmet-async';
 import "./styles/export-fix.css";
 
+import { AuthProvider } from "./context/AuthContext"
+
 const rootElement = document.getElementById('root');
 
 if (!rootElement) {
@@ -15,7 +17,9 @@ if (!rootElement) {
 ReactDOM.createRoot(rootElement).render(
   <React.StrictMode>
     <HelmetProvider>
-      <App />
+      <AuthProvider> 
+        <App />
+      </AuthProvider> 
     </HelmetProvider>
   </React.StrictMode>
 );

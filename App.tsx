@@ -11,6 +11,10 @@ import BlogPostPage from './pages/BlogPostPage';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import { ThemeProvider } from './context/ThemeContext';
+import { AuthProvider } from './context/AuthContext';
+import LoginPage from './pages/LoginPage';
+import SignupPage from './pages/SignupPage';
+import ProtectedRoute from './components/ProtectedRoute';
 
 import './export.css';
 
@@ -30,6 +34,8 @@ const App: React.FC = () => {
               <Route path="/contact-support" element={<ContactPage />} />
               <Route path="/blog" element={<BlogPage />} />
               <Route path="/blog/:id" element={<BlogPostPage />} />
+              <Route path="/login" element={<LoginPage />} />
+               <Route path="/signup" element={<SignupPage />} />
             </Routes>
           </main>
 
